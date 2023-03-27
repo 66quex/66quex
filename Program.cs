@@ -16,7 +16,22 @@ namespace GetResult
         }
 
         static string GetResults(string inputMeaning)
-        { 
+        {
+            string correctSymbols = "abcdefghijklmnopqrstuvwxyz";
+            string notCorrectSymbols = "";
+            for(int i = 0; i < inputMeaning.Length; i++)
+            {
+                if (correctSymbols.IndexOf(inputMeaning[i]) == -1)
+                {
+                    notCorrectSymbols += inputMeaning[i];
+                    
+                }      
+                
+            }
+            if (notCorrectSymbols.Length > 0)
+            {
+                return "Не верные символы: " + notCorrectSymbols;
+            }
             if (inputMeaning.Length % 2 == 0)
             {
                 int halfMeating = inputMeaning.Length / 2;
